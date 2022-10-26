@@ -67,7 +67,15 @@ public class CustomList extends ArrayAdapter<City> {
      * @param city
      */
     public boolean hasCity(City city){
-        return true;
+        ArrayList<City> allCities = this.cities;
+        int listSize = allCities.size();
+        for (int i = 0; i < listSize; i++){
+            City tempCity = allCities.get(i);
+            if(tempCity.getCityName() == city.getCityName()){
+                return true;
+            }
+        }
+        return false;
     }
 
 }
