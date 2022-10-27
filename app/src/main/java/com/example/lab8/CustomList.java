@@ -84,6 +84,20 @@ public class CustomList extends ArrayAdapter<City> {
      */
     public void deleteCity(City city){
 
+        if (this.hasCity(city) != true){
+            throw new IllegalArgumentException();
+        }
+
+        int size = this.getCount();
+
+        for (int i = 0; i < size; i++){
+            City tempCity = this.cities.get(i);
+            if(tempCity.getCityName() == city.getCityName()){
+                this.cities.remove(i);
+                break;
+            }
+        }
+
     }
 
 }
